@@ -51,6 +51,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 │   │     ├── Header.js
 │   ├── Album.js                  #Component for single Album view
 │   ├── Artist.js                 #Component for single Artist view
+│   ├── Main.js                   #Main Component for page layout
 │   ├── RenderResult.js           #Component to render results from API fetch
 │   ├── Search.js                 #Component with search fields
 │   └── Track.js                  #Component for single Track view

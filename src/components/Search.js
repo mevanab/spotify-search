@@ -24,7 +24,7 @@ class Search extends Component {
     //Run on text box change to change search query keyword
     queryChange(event){
         let newQuery = event.target.value;
-
+        
         this.setState({query : newQuery})
         this.fetchData(newQuery, this.state.searchType);
     }

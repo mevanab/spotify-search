@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Search from './components/Search';
+import Main from './components/Main';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './assets/css/App.css';
 
@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
           <MuiThemeProvider> 
-            <Search />
+            <Main />
           </MuiThemeProvider>
       </div>
     );
