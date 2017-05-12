@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 
+import RenderResults from './RenderResults';
+
 class Search extends Component {
     constructor(props){
         super(props)
@@ -65,16 +67,21 @@ class Search extends Component {
         };
 
         return (
-            <div className="Search">
-                <TextField hintText="Type a song, artist or an album to search..." style={styles.textField} onChange={this.queryChange.bind(this)} />
-                
-                <RadioButtonGroup name="searchTypes" defaultSelected="album,artist,track" onChange={this.typeChange.bind(this)}>
-                    <RadioButton value="album,artist,track" label="All" style={styles.radioButton} />
-                    <RadioButton value="track" label="Tracks" style={styles.radioButton} />
-                    <RadioButton value="artist" label="Artists" style={styles.radioButton} />
-                    <RadioButton value="album" label="Albums" style={styles.radioButton} />
-                </RadioButtonGroup>
+            <div className="Inner-container">
+                <div className="Search">
+                    <TextField hintText="Type a song, artist or an album to search..." style={styles.textField} onChange={this.queryChange.bind(this)} />
+                    
+                    <RadioButtonGroup name="searchTypes" defaultSelected="album,artist,track" onChange={this.typeChange.bind(this)}>
+                        <RadioButton value="album,artist,track" label="All" style={styles.radioButton} />
+                        <RadioButton value="track" label="Tracks" style={styles.radioButton} />
+                        <RadioButton value="artist" label="Artists" style={styles.radioButton} />
+                        <RadioButton value="album" label="Albums" style={styles.radioButton} />
+                    </RadioButtonGroup>
+                </div>
 
+                <div className="Results-wrap">
+                    <RenderResults result={this.state.results} />
+                </div>
             </div>
         );
     }
