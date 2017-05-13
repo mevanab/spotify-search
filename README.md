@@ -29,6 +29,10 @@ Run `npm run build` or `yarn build` to build application for production
 Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+## Important Notes
+Recompose v0.23.0 is required as higher versions for recompse are not compatible with Material UI yet.
+
+
 ## Folder & File Structure
 
 ├── build
