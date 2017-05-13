@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import { GridList } from 'material-ui/GridList';
+import { Tabs, Tab } from 'material-ui/Tabs';
+
+import Track from './Track';
 
 class RenderResults extends Component {
     constructor(props) {
@@ -8,7 +10,7 @@ class RenderResults extends Component {
 
         //Set state for tabs
         this.state = {
-            tab: 'tracksTab',
+            value: 'tracksTab',
         };
     }
 
@@ -26,6 +28,9 @@ class RenderResults extends Component {
                 flexWrap: 'wrap',
                 justifyContent: 'space-around',
             },
+            tabStyles: {
+                width: '100%'
+            }
         };
 
         //Set variables for Tracks, Artists & Albums
@@ -33,7 +38,11 @@ class RenderResults extends Component {
 
         //If the property result contains tracks object, set its' items object to resultTracks variable (items name contains the objects of tracks)
         if(this.props.result.tracks){
-            resultTracks = this.props.result.tracks.items;
+            resultTracks = this.props.result.tracks.items.map(track => {
+                return(
+                    <Track key={track.id} track={track} />
+                );
+            });
         }
 
         //If the property result contains artists object, set its' items object to resultArtists variable (items name contains the objects of artists)
@@ -48,30 +57,30 @@ class RenderResults extends Component {
 
         return(
             <div className="ResultsWrapper" style={styles.root}>
-                <Tabs tab={this.state.tab} onChange={this.changeTab}>
-                    <Tab label="Tracks" tab="tracksTab">
+                <Tabs value={this.state.tab} onChange={this.changeTab} style={styles.tabStyles}>
+                    <Tab label="Tracks" value="tracksTab">
                         <div>
                             <h2 style={styles.headline}>Tracks</h2>
+                            <GridList cellHeight={200} style={styles.gridList} cols={5}>
+                                {resultTracks}
+                            </GridList>
+                        </div>
+                    </Tab>
+                    <Tab label="Artists" value="artistsTab">
+                        <div>
+                            <h2 style={styles.headline}>Artists</h2>
                             <p>
-                                Tracks go here.
+                                Artists go here.
                             </p>
                         </div>
                     </Tab>
-                    <Tab label="Artists" tab="artistsTab">
-                    <div>
-                        <h2 style={styles.headline}>Artists</h2>
-                        <p>
-                            Artists go here.
-                        </p>
-                    </div>
-                    </Tab>
-                    <Tab label="Albums" tab="albumsTab">
-                    <div>
-                        <h2 style={styles.headline}>Albums</h2>
-                        <p>
-                            Albums go here.
-                        </p>
-                    </div>
+                    <Tab label="Albums" value="albumsTab">
+                        <div>
+                            <h2 style={styles.headline}>Albums</h2>
+                            <p>
+                                Albums go here.
+                            </p>
+                        </div>
                     </Tab>
                 </Tabs>
             </div>
