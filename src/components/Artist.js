@@ -5,11 +5,11 @@ import { ListItem } from 'material-ui/List';
 
 class Artist extends Component {
     render() {
-        let id, name, external_urls, images, image, artist_url;
+        let name, external_urls, images, image, artist_url;
 
         //If track is available destructure object and assign to variables
         if(this.props.artist){
-            ({id, name, external_urls, images} = this.props.artist);
+            ({name, external_urls, images} = this.props.artist);
 
             //Take first image of images array as artist image
             if(images.length > 0){

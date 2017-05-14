@@ -5,11 +5,11 @@ import AvAlbum from 'material-ui/svg-icons/av/album';
 
 class Album extends Component {
     render() {
-        let id, name, artists, images, external_urls, album_url, image, combinedArtists;
+        let name, artists, images, external_urls, album_url, image, combinedArtists;
 
         //If album is available destructure object and assign to variables
         if(this.props.album){
-            ({id, name, images, artists, external_urls} = this.props.album);
+            ({name, images, artists, external_urls} = this.props.album);
 
             //If images array is greater than 0 take first image of images array as album image else display default image
             if(images.length > 0){
@@ -26,8 +26,8 @@ class Album extends Component {
         }
 
         return(
-            <GridTile key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={album_url} target="_blank"><AvAlbum color="white" /></IconButton>}>
-                <img src={image} />
+            <GridTile className="gridlist_tile" key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={album_url} target="_blank"><AvAlbum color="white" /></IconButton>}>
+                <img src={image} alt={name} />
             </GridTile>
         );
     }

@@ -36,12 +36,16 @@ class RenderResults extends Component {
     displayTracks() {
             if(this.props.result.tracks){
                     return(
-                        <GridList cellHeight={200} cols={5}>
-                        {/* Map through items object and pass each track as a property to Track component */}
-                        {this.props.result.tracks.items.map((track) =>
-                            <Track className="MYFUCKING" key={track.id} track={track} />
-                        )}
-                        </GridList>
+                        <div className="tracks_wrapper">
+                            <small className="results_count">Showing {this.props.result.tracks.items.length} of {this.props.result.tracks.total} results</small>
+
+                            <GridList className="gridlist_wrapper" cellHeight={200} cols={5}>
+                            {/* Map through items object and pass each track as a property to Track component */}
+                            {this.props.result.tracks.items.map((track) =>
+                                <Track key={track.id} track={track} />
+                            )}
+                            </GridList>
+                        </div>
                     );
             } else {
                 return(
@@ -54,12 +58,16 @@ class RenderResults extends Component {
     displayArtists() {
             if(this.props.result.artists){
                     return(
-                        <List cellHeight={200} cols={5}>
-                            {/* Map through items object and pass each artist as a property to Artist component */}
-                            {this.props.result.artists.items.map((artist) =>
-                                <Artist key={artist.id} artist={artist} />
-                            )}
-                        </List>
+                        <div className="artists_wrapper">
+                            <small className="results_count">Showing {this.props.result.artists.items.length} of {this.props.result.artists.total} results</small>
+
+                            <List cellHeight={200} cols={5}>
+                                {/* Map through items object and pass each artist as a property to Artist component */}
+                                {this.props.result.artists.items.map((artist) =>
+                                    <Artist key={artist.id} artist={artist} />
+                                )}
+                            </List>
+                        </div>
                     );
             } else {
                 return(
@@ -72,12 +80,16 @@ class RenderResults extends Component {
     displayAlbums() {
             if(this.props.result.albums){
                     return(
-                        <GridList cellHeight={200} cols={5}>
-                        {/* Map through items object and pass each album as a property to Album component */}
-                        {this.props.result.albums.items.map((album) =>
-                            <Album key={album.id} album={album} />
-                        )}
-                        </GridList>
+                        <div className="albums_wrapper">
+                            <small className="results_count">Showing {this.props.result.albums.items.length} of {this.props.result.albums.total} results</small>
+
+                            <GridList className="gridlist_wrapper" cellHeight={200} cols={5}>
+                            {/* Map through items object and pass each album as a property to Album component */}
+                            {this.props.result.albums.items.map((album) =>
+                                <Album key={album.id} album={album} />
+                            )}
+                            </GridList>
+                        </div>
                     );
             } else {
                 return(

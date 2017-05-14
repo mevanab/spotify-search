@@ -71,10 +71,10 @@ class Search extends Component {
                 <div className="Search">
                     <TextField hintText="Type a song, artist or an album to search..." style={styles.textField} onChange={this.queryChange.bind(this)} />
                     <RadioButtonGroup name="searchTypes" defaultSelected="album,artist,track" onChange={this.typeChange.bind(this)}>
-                        <RadioButton value="album,artist,track" label="All" style={styles.radioButton} />
-                        <RadioButton value="track" label="Tracks" style={styles.radioButton} />
-                        <RadioButton value="artist" label="Artists" style={styles.radioButton} />
-                        <RadioButton value="album" label="Albums" style={styles.radioButton} />
+                        <RadioButton className="input_radiobtn" value="album,artist,track" label="All" style={styles.radioButton} />
+                        <RadioButton className="input_radiobtn" value="track" label="Tracks" style={styles.radioButton} />
+                        <RadioButton className="input_radiobtn" value="artist" label="Artists" style={styles.radioButton} />
+                        <RadioButton className="input_radiobtn" value="album" label="Albums" style={styles.radioButton} />
                     </RadioButtonGroup>
                 </div>
 

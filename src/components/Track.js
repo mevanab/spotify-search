@@ -5,11 +5,11 @@ import PlayArrow from 'material-ui/svg-icons/av/play-arrow';
 
 class Track extends Component {
     render() {
-        let id, name, album, artists, preview_url, image, combinedArtists;
+        let name, album, artists, preview_url, image, combinedArtists;
 
         //If track is available destructure object and assign to variables
         if(this.props.track){
-            ({id, name, album, artists, preview_url} = this.props.track);
+            ({name, album, artists, preview_url} = this.props.track);
 
             //Take first image of album array as track image
             image = album.images[0].url;
@@ -21,8 +21,8 @@ class Track extends Component {
         }
 
         return(
-            <GridTile key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={preview_url} target="_blank"><PlayArrow color="white" /></IconButton>}>
-                <img src={image} />
+            <GridTile className="gridlist_tile" key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={preview_url} target="_blank"><PlayArrow color="white" /></IconButton>}>
+                <img src={image} alt={name} />
             </GridTile>
         );
     }
