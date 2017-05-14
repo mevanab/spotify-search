@@ -3,6 +3,7 @@ A simple Spotify search using ReactJS.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 This project uses [Material-UI](http://www.material-ui.com/#/) for UI components.
+Spotify Endpoint Reference https://developer.spotify.com/web-api/endpoint-reference/
 
 ## Running & Deploying Application
 ### Installation
