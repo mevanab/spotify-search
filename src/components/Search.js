@@ -43,7 +43,7 @@ class Search extends Component {
             fetch(url)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
+                    //Set received response data object to results of state
                     this.setState({results :  data});
             });
         } else {
@@ -70,7 +70,6 @@ class Search extends Component {
             <div className="Inner-container">
                 <div className="Search">
                     <TextField hintText="Type a song, artist or an album to search..." style={styles.textField} onChange={this.queryChange.bind(this)} />
-                    
                     <RadioButtonGroup name="searchTypes" defaultSelected="album,artist,track" onChange={this.typeChange.bind(this)}>
                         <RadioButton value="album,artist,track" label="All" style={styles.radioButton} />
                         <RadioButton value="track" label="Tracks" style={styles.radioButton} />

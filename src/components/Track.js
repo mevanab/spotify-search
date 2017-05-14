@@ -21,7 +21,7 @@ class Track extends Component {
         }
 
         return(
-            <GridTile action={preview_url} key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={preview_url} target="_blank"><PlayArrow color="white" /></IconButton>}>
+            <GridTile key={name} title={name} subtitle={<span>by <b>{combinedArtists}</b></span>} actionIcon={<IconButton href={preview_url} target="_blank"><PlayArrow color="white" /></IconButton>}>
                 <img src={image} />
             </GridTile>
         );
